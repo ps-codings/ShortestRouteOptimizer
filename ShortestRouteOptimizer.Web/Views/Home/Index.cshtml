@@ -1,0 +1,73 @@
+﻿@model ShortestRouteOptimizer.Web.Models.Location
+
+@{
+    ViewBag.Title = "Shortest Route Optimizer";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Welcome to Shortest Route Optimizer Application</h1>
+
+    </section>
+    <div class="row">
+        @if (ViewBag.AvailableNodes != null)
+        {
+            <p class="alert alert-info" role="alert">
+                Valid nodes (@ViewBag.AvailableNodes) for input
+            </p>
+        }
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <p class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <p class="form-group">
+                @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "control-label col-md-2" })
+            <p class="col-md-6">
+                @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.From, "", new { @class = "text-danger" })
+            </p>
+            </p>
+
+            <p>
+                @Html.LabelFor(model => model.To, htmlAttributes: new { @class = "control-label col-md-2" })
+            <p class="col-md-10">
+                @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
+            </p>
+            </p>
+
+            <p class="form-group">
+            <p class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Calculate" class="btn btn-success" />
+            </p>
+            </p>
+            </p>
+        }
+
+    </div>
+    <br/>
+    <div class="row">
+        @if (ViewBag.ShortestPathData != null)
+        {
+            <p class="alert alert-success" role="alert">
+                fromNodeName = “@Model.From”, toNodeName = ”@Model.To”: @string.Join(",", ViewBag.ShortestPathData.NodeNames);
+                <br />
+                Total Distance: @ViewBag.ShortestPathData.Distance
+            </p>
+        }
+    </div>
+
+    <div class="row">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <p class="alert alert-danger" role="alert">
+                @ViewBag.ErrorMessage
+            </p>
+        }
+    </div>
+</main>
