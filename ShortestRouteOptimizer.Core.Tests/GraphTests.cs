@@ -1,7 +1,7 @@
 using Xunit;
 using ShortestRouteOptimizer.Core;
 
-namespace ShortestRouteOptimizer.ConsoleApp.Tests
+namespace ShortestRouteOptimizer.Core.Tests
 {
     public class GraphTests
     {

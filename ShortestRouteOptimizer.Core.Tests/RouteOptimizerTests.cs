@@ -2,7 +2,7 @@ using Xunit;
 using ShortestRouteOptimizer.Core;
 using System.Collections.Generic;
 
-namespace ShortestRouteOptimizer.ConsoleApp.Tests
+namespace ShortestRouteOptimizer.Core.Tests
 {
     public class RouteOptimizerTests
     { 
