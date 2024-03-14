@@ -55,6 +55,7 @@ namespace ShortestRouteOptimizer.Core.Tests
 
             // Assert
             Assert.Equal(0,result.Distance);
+            Assert.True(result.NodeNames.Count == 1);
         }
 
         public static IEnumerable<object[]> CorrectResultsData = new List<object[]>
