@@ -45,7 +45,7 @@ namespace ShortestRouteOptimizer.Core.Tests
         [InlineData("B", "B")]
         [InlineData("G", "G")]
 
-        public void ShortestPath_Should_ReturnNull_WhenTwoNodesAreEqual(string fromNode, string toNode)
+        public void ShortestPath_Should_ReturnZero_WhenTwoNodesAreEqual(string fromNode, string toNode)
         {
             // Arrange
             var graph = RouteOptimizer.Initiate();
@@ -54,7 +54,7 @@ namespace ShortestRouteOptimizer.Core.Tests
             var result = DijkstraAlgorithm.ShortestPath(fromNode, toNode, graph);
 
             // Assert
-            Assert.Null(result);
+            Assert.Equal(0,result.Distance);
         }
 
         public static IEnumerable<object[]> CorrectResultsData = new List<object[]>

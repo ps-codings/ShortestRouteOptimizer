@@ -17,8 +17,8 @@ namespace ShortestRouteOptimizer.Core
             if (string.IsNullOrEmpty(toNodeName))
                 return null;
 
-            if (fromNodeName == toNodeName)
-                return null;
+            //if (fromNodeName == toNodeName)
+            //    return null;
 
             var fromNode = new Node(fromNodeName);
             var toNode = new Node(toNodeName);
