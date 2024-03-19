@@ -16,15 +16,15 @@
             var nodeH = new Node("H");
             var nodeI = new Node("I");
 
-            graph.AddNode(nodeA);
-            graph.AddNode(nodeB);
-            graph.AddNode(nodeC);
-            graph.AddNode(nodeD);
-            graph.AddNode(nodeE);
-            graph.AddNode(nodeF);
-            graph.AddNode(nodeG);
-            graph.AddNode(nodeH);
-            graph.AddNode(nodeI);
+            //graph.AddNode(nodeA);
+            //graph.AddNode(nodeB);
+            //graph.AddNode(nodeC);
+            //graph.AddNode(nodeD);
+            //graph.AddNode(nodeE);
+            //graph.AddNode(nodeF);
+            //graph.AddNode(nodeG);
+            //graph.AddNode(nodeH);
+            //graph.AddNode(nodeI);
 
             graph.AddEdge(nodeA, nodeB, 4);
             graph.AddEdge(nodeA, nodeC, 6);

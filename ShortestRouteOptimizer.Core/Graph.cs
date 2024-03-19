@@ -12,7 +12,7 @@ namespace ShortestRouteOptimizer.Core
             _nodes = new Dictionary<Node, Dictionary<Node, int>>();
         }
 
-        public void AddNode(Node node)
+        private void AddNode(Node node)
         {
             if (!_nodes.ContainsKey(node))
             {

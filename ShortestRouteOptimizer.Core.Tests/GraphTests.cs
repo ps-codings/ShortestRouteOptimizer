@@ -1,5 +1,6 @@
 using Xunit;
 using ShortestRouteOptimizer.Core;
+using System.Xml.Linq;
 
 namespace ShortestRouteOptimizer.Core.Tests
 {
@@ -11,12 +12,13 @@ namespace ShortestRouteOptimizer.Core.Tests
             //Arrange
             var graph = new Graph();
             var nodeA = new Node("A");
+            var nodeB = new Node("B");
 
             // Act
-            graph.AddNode(nodeA);
+            graph.AddEdge(nodeA, nodeB, 4);
 
             // Assert
-            Assert.True(graph.GetNodes().Count == 1);
+            Assert.True(graph.GetNodes().Count == 2);
         }
 
         [Fact]
@@ -25,13 +27,15 @@ namespace ShortestRouteOptimizer.Core.Tests
             //Arrange
             var graph = new Graph();
             var nodeA = new Node("A");
+            var nodeB = new Node("B");
+            var nodeC = new Node("C");
 
             // Act
-            graph.AddNode(nodeA);
-            graph.AddNode(nodeA);
+            graph.AddEdge(nodeA, nodeB, 4);
+            graph.AddEdge(nodeA, nodeC, 6);
 
             // Assert
-            Assert.True(graph.GetNodes().Count == 1);
+            Assert.True(graph.GetNodes().Count == 3);
         }
 
         [Fact]
@@ -44,10 +48,6 @@ namespace ShortestRouteOptimizer.Core.Tests
             var nodeC = new Node("C");
 
             // Act
-            graph.AddNode(nodeA);
-            graph.AddNode(nodeB);
-            graph.AddNode(nodeC);
-
             graph.AddEdge(nodeA, nodeB, 4);
             graph.AddEdge(nodeA, nodeC, 6);
 
@@ -64,9 +64,6 @@ namespace ShortestRouteOptimizer.Core.Tests
             var nodeB = new Node("B");
 
             // Act
-            graph.AddNode(nodeA);
-            graph.AddNode(nodeB);
-
             graph.AddEdge(nodeA, nodeB, 4, false);
 
             // Assert
